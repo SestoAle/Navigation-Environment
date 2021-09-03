@@ -6,7 +6,7 @@ Motivation and Imitation Learning.
 It is still a work in progress...
 
 <p align="center">
-<img  src="screenshot.png" width="60%" height="60%"/>
+<img  src="imgs/screenshot.png" width="60%" height="60%"/>
 </p>
 
 ### TODOs
