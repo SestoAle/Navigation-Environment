@@ -31,7 +31,9 @@ WASD and jumping with Space.
 | **ml-agents** | tested on v0.5.0| [download](https://drive.google.com/file/d/18_vvUN9_IPK7_guBRnL91tGzzFR5_V6N/view?usp=sharing) |
 
 **The project was tested only on Linux and Mac OS**.
+
 You can import the required ml-agents folders with the link above.
+
 ml-agents is required just for linking Unity to Python: I use my implementation for DRL algorithms.
     
 
