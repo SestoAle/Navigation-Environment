@@ -13,10 +13,10 @@ It is still a work in progress...
 
 - Add more aesthetic elements;
 - Add more features:
-        - enemies?
-        - hazards?
-        - interactables (like doors, keys and treasures?)
-        - etc...
+    - enemies?
+    - hazards?
+    - interactables (like doors, keys and treasures?)
+    - etc...
 - Add more things to test;
 
 ### Play the game
