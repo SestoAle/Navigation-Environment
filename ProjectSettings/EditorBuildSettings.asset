@@ -5,30 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MultiTrainScene.unity
-    guid: 7769a316f3f9c811b9de2a04ab1a76ab
-  - enabled: 0
-    path: Assets/Scenes/TrainScene.unity
-    guid: 698e0fb1f4f1ca6349b21a63bf17595a
-  - enabled: 0
-    path: Assets/Scenes/Jump Scene.unity
-    guid: 9c6191ce3e5d63342a59e6c76eed97e7
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/BugDetection.unity
-    guid: f9f84736a2f412f6a8bedb7b5e0ce4fc
-  - enabled: 0
-    path: Assets/Scenes/Bug Detection Complex.unity
-    guid: 8d873a761653e89aa80bf19db6a3a5b4
-  - enabled: 0
-    path: Assets/Scenes/Bug Detection Acc.unity
-    guid: de392c6b23772f81f9d40d8b04f6bda1
-  - enabled: 0
-    path: Assets/Scenes/Bug Detection Really Big.unity
-    guid: 46b950031f28c48bfa5ee2be44cf5597
   - enabled: 1
     path: Assets/Scenes/Playtesting Scene.unity
     guid: a142e61a8c8d3380f8f2d483a06c44de
