@@ -3,7 +3,12 @@
 A 500 m x 500 m x 50 m  environment for studying automated playtesting through Intrinsic
 Motivation and Imitation Learning.
 
-It is still a work in progress...
+The environment should define a complex and elaborate navigation landscape, to simulate a 
+complex real scenario of modern video games.
+
+The environment will be cover of some "bugs" which will be properly identified.
+
+It is still a work in progress. The current state of the environment is:
 
 <p align="center">
 <img  src="imgs/screenshot.png" width="60%" height="60%"/>
