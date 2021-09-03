@@ -11,13 +11,13 @@ It is still a work in progress...
 
 ### TODOs
 
-* Add more aesthetic elements;
-* Add more features:
+- Add more aesthetic elements;
+- Add more features:
         - enemies?
         - hazards?
         - interactables (like doors, keys and treasures?)
         - etc...
-* Add more things to test;
+- Add more things to test;
 
 ### Play the game
 
