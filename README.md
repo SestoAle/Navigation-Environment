@@ -1,14 +1,12 @@
 # Playtesting-Env
 
-A 500 m x 500 m x 50 m  environment for studying automated playtesting through Intrinsic
-Motivation and Imitation Learning.
+A relatively big environment (500 m x 500 m x 50 m) for studying automated playtesting through **combination of Intrinsic
+Motivation and Imitation Learning.**
 
 The environment should define a complex and elaborate navigation landscape, to simulate a 
-complex real scenario of modern video games.
+complex real scenario of modern video games. This will be covered with some "bugs" which will be properly identified.
 
-The environment will be cover of some "bugs" which will be properly identified.
-
-It is still a work in progress. The current state of the environment is:
+It is still a work in progress. An example of the current state:
 
 <p align="center">
 <img  src="imgs/screenshot.png" width="60%" height="60%"/>
@@ -38,7 +36,6 @@ WASD and jumping with Space.
 **The project was tested only on Linux and Mac OS**.
 
 You can import the required ml-agents folders with the link above.
-
 ml-agents is required just for linking Unity to Python: I use my implementation for DRL algorithms.
     
 
