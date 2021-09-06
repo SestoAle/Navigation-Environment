@@ -18,7 +18,7 @@ It is still a work in progress. An example of the current state:
 - Add more features:
     - enemies?
     - hazards?
-    - interactables (like doors, keys and treasures?)
+    - interactables (like doors, keys and treasures)?
     - etc...
 - Add more things to test;
 
