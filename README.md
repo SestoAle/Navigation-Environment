@@ -9,7 +9,7 @@ complex real scenario of modern video games. This will be covered with some "bug
 It is still a work in progress. An example of the current state:
 
 <p align="center">
-<img  src="imgs/screenshot.png" width="60%" height="60%"/>
+<img  src="imgs/screenshot.gif" width="60%" height="60%"/>
 </p>
 
 ### TODOs
