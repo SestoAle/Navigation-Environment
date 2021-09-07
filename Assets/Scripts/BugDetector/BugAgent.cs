@@ -50,6 +50,7 @@ public class BugAgent : Agent
     private bool _isGrounded = false;
     private bool _doubleJump = false;
     private bool _isAttached = false;
+    private int _climbDirection;
     
     private Rigidbody _rigidbody;
     
@@ -102,6 +103,12 @@ public class BugAgent : Agent
             if (collision.CompareTag("Key"))
             {
                 // key
+                return 4f;
+            }
+
+            if (collision.CompareTag("Climbable"))
+            {
+                // climbable wall
                 return 3f;
             }
             
@@ -219,7 +226,7 @@ public class BugAgent : Agent
         
         agentX = normalize(agentPosition.x, 250, -250);
         agentZ = normalize(agentPosition.z, 250, -250);
-        agentY = normalize(agentPosition.y, 40, 1);
+        agentY = normalize(agentPosition.y, 60, 1);
 
 
         // If the agent is grounded or not
@@ -287,6 +294,31 @@ public class BugAgent : Agent
                 _isGrounded = true;
                 _doubleJump = true;
             }
+        }
+
+        // If it is a climbable surface, check also the contact dretcion
+        if (other.gameObject.CompareTag("Climbable"))
+        {
+            _isAttached = true;
+            _doubleJump = true;
+
+            ContactPoint contact = other.contacts[0];
+            if (Vector3.Dot(contact.normal, Vector3.back) > 0.5)
+            {
+                _climbDirection = 0;
+            }
+            if (Vector3.Dot(contact.normal, Vector3.right) > 0.5)
+            {
+                _climbDirection = 1;
+            }
+            if (Vector3.Dot(contact.normal, Vector3.left) > 0.5)
+            {
+                _climbDirection = 2;
+            }
+            if (Vector3.Dot(contact.normal, Vector3.forward) > 0.5)
+            {
+                _climbDirection = 3;
+            }
 
         }
     }
@@ -297,20 +329,6 @@ public class BugAgent : Agent
         {
             _doubleJump = true;
         }
-
-        if (other.gameObject.CompareTag("Climbable"))
-        {
-            _isAttached = true;
-            _doubleJump = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Climbable"))
-        {
-            _isAttached = false;
-        }
     }
 
     private void OnCollisionExit(Collision other)
@@ -320,6 +338,12 @@ public class BugAgent : Agent
         {
             _isGrounded = false;
 
+        }
+
+        if (other.gameObject.CompareTag("Climbable"))
+        {
+            _isAttached = false;
+            _climbDirection = 0;
         }
     }
 
@@ -422,21 +446,55 @@ public class BugAgent : Agent
         return reward;
     }
     
-    // Movement of the agent baes on its rigidBody
+    // Movement of the agent based on its rigidBody
     public void Movement(float horizontal, float vertical, float jump)
-    {
-        if (_isAttached && _rigidbody.velocity.y < 0f)
+    {   
+
+        Vector3 direction;
+
+        // If the agent is attached to a surface, the movement changes based on the direction
+        // of the climbing
+        if (_isAttached)
         {
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+
+            switch(_climbDirection)
+            {
+                case 0:
+                    direction = new Vector3(horizontal, vertical, 0);
+                    break;
+                case 1:
+                    direction = new Vector3(0, -horizontal, vertical);
+                    break;
+                case 2:
+                    direction = new Vector3(0, horizontal, vertical);
+                    break;
+                default:
+                    direction = new Vector3(horizontal, -vertical, 0);
+                    break;
+            }
+            
+            // If the agent jump when it is attach to a surface, detach it
+            if(jump > 0)
+            {
+                _isAttached = false;
+            }
         }
-        if (jump > 0)
+        else
         {
-            _rigidbody.velocity = new Vector3(0, 0, 0);
-            _rigidbody.AddForce(Vector3.up * Mathf.Sqrt(_agentJump * -2f * Physics.gravity.y), ForceMode.Impulse);
-            _jump = 0;
-            _isGrounded = false;
+            if (_isAttached && _rigidbody.velocity.y < 0f)
+            {
+                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+            }
+            if (jump > 0)
+            {
+                _rigidbody.velocity = new Vector3(0, 0, 0);
+                _rigidbody.AddForce(Vector3.up * Mathf.Sqrt(_agentJump * -2f * Physics.gravity.y), ForceMode.Impulse);
+                _jump = 0;
+                _isGrounded = false;
+            }
+            direction = new Vector3(horizontal, 0, vertical);
         }
-        Vector3 direction = new Vector3(horizontal, 0, vertical);
         if (direction.magnitude < 0.2f)
             return;
 

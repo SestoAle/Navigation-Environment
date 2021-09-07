@@ -26,9 +26,10 @@ public class CubeCollision : MonoBehaviour
         int wallMask = 1 << LayerMask.NameToLayer("Wall");
         int coinMask = 1 << LayerMask.NameToLayer("Coin");
         int rampMask = 1 << LayerMask.NameToLayer("Ramp");
+        int climbableMask = 1 << LayerMask.NameToLayer("Climbable");
         int planeMask = 1 << LayerMask.NameToLayer("Plane");
 
-        int finalMask = wallMask | rampMask | planeMask | coinMask;
+        int finalMask = wallMask | rampMask | planeMask | coinMask | climbableMask;
 
         Collider[] hitColliders =
             Physics.OverlapBox(gameObject.transform.position,
