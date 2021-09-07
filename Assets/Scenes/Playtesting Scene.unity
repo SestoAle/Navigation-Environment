@@ -15978,13 +15978,13 @@ MonoBehaviour:
     width: 0
     height: 0
     qualityLevel: 0
-    timeScale: 5
+    timeScale: 100
     targetFrameRate: -1
   inferenceConfiguration:
-    width: 1280
-    height: 720
+    width: 0
+    height: 0
     qualityLevel: 0
-    timeScale: 5
+    timeScale: 1
     targetFrameRate: -1
   resetParameters:
     resetParameters:
