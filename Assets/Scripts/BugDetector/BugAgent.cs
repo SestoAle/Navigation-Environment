@@ -17,9 +17,12 @@ public class BugAgent : Agent
     public float _agentSpeed = 60;
     [Range(0f, 10f)]
     public float _agentJump = 2f;
-    private CharacterController _characterController;
     public float turnSmoothTime = 0.2f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+    private CharacterController _characterController;
     private float turnSmoothVelocity;
+
     
     // Whether to use a discrete or continuous action space
     public bool _discrete = true;
@@ -281,6 +284,12 @@ public class BugAgent : Agent
             }
 
         }
+
+        if(other.collider.gameObject.CompareTag("Wall"))
+        {
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, -1f, _rigidbody.velocity.z);
+        }
+
     }
 
     private void OnCollisionStay(Collision other)
@@ -347,6 +356,56 @@ public class BugAgent : Agent
         }
     }
 
+    public void getHumanInput()
+    {
+        float horizontal = 0;
+        float vertical = 0;
+        float jump = 0;
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            horizontal += 0;
+            vertical += 1;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            horizontal -= 1;
+            vertical += 0;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            horizontal += 0;
+            vertical -= 1;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            horizontal += 1;
+            vertical += 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("YEAH");
+            if (_isGrounded || (!_isGrounded && _doubleJump))
+            {
+                jump = 0.8f;
+            }
+            if (!_isGrounded && _doubleJump)
+            {
+                _doubleJump = false;
+            }
+                
+            horizontal += 0;
+            vertical += 0;
+        }
+        _horizontal = horizontal;
+        _vertical = vertical;
+        _jump = jump;
+    }
+
     public void DiscreteMovement(int action)
     {
         float horizontal = 0;
@@ -406,7 +465,6 @@ public class BugAgent : Agent
                 vertical = 0;
                 break;
         }
-
         _horizontal = horizontal;
         _vertical = vertical;
         _jump = jump;
@@ -490,13 +548,21 @@ public class BugAgent : Agent
             {
                 _rigidbody.velocity = new Vector3(0, 0, 0);
                 _rigidbody.AddForce(Vector3.up * Mathf.Sqrt(_agentJump * -2f * Physics.gravity.y), ForceMode.Impulse);
+                //_rigidbody.velocity = Vector3.up * _agentJump;
                 _jump = 0;
                 _isGrounded = false;
             }
             direction = new Vector3(horizontal, 0, vertical);
         }
+        // Movement down
+        if (_rigidbody.velocity.y < 0)
+        {
+            _rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+        }
+
         if (direction.magnitude < 0.2f)
             return;
+
 
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -539,10 +605,16 @@ public class BugAgent : Agent
     void FixedUpdate()
     {
 
-        if (_frameCount % _timeScale == 0)
+        if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
         {
-            // Request a decision every _timeScale frames. The reward is given directly by the cubeRewards (if any).
+            // Request a decision every _timeScale frames.
+            // The reward is given directly by the cubeRewards (if any).
             RequestDecision();
+        }
+        else
+        // If the human is moving the agent, change the Input Specification
+        {
+            getHumanInput();
         }
 
         _frameCount++;
