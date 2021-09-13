@@ -388,7 +388,6 @@ public class BugAgent : Agent
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("YEAH");
             if (_isGrounded || (!_isGrounded && _doubleJump))
             {
                 jump = 0.8f;
@@ -563,7 +562,6 @@ public class BugAgent : Agent
         if (direction.magnitude < 0.2f)
             return;
 
-
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         //transform.forward = direction;
@@ -604,16 +602,16 @@ public class BugAgent : Agent
 
     void FixedUpdate()
     {
-
+        
         if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
         {
             // Request a decision every _timeScale frames.
             // The reward is given directly by the cubeRewards (if any).
             RequestDecision();
         }
-        else
-        // If the human is moving the agent, change the Input Specification
+        else if(brain.brainType == BrainType.Player)
         {
+            // If the human is moving the agent, change the Input Specification
             getHumanInput();
         }
 
