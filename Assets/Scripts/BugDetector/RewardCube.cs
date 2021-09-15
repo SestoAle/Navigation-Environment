@@ -22,6 +22,7 @@ public class RewardCube : MonoBehaviour
             if (!_rewardAlreadyTaken)
             {
                 other.gameObject.GetComponent<BugAgent>().SetReward(reward);
+                Debug.Log("SALDKASJDJ");
                 //gameObject.SetActive(false);
                 //_rewardAlreadyTaken = true;
             }

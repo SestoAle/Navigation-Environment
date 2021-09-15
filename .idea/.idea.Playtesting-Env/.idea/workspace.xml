@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/RewardCube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/RewardCube.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitySDK.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnitySDK.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +19,7 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Misc/RotateObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/RewardCube.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1xldIDJMQVNGxxHyaijoU8vwNiL" />
@@ -78,6 +79,7 @@
       <updated>1630933527368</updated>
       <workItem from="1630933529973" duration="1303000" />
       <workItem from="1631522712704" duration="5177000" />
+      <workItem from="1631688946874" duration="609000" />
     </task>
     <servers />
   </component>
