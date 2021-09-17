@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
 {
 
     public Vector3 _defaultRotation;
+    public BugAgent _agent;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,5 @@ public class CameraMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.rotation = Quaternion.Euler(_defaultRotation);
     }
 }

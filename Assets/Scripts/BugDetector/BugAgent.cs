@@ -565,6 +565,12 @@ public class BugAgent : Agent
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         //transform.forward = direction;
+        // Rotate the agent only in player mode
+        // if (brain.brainType == BrainType.Player)
+        // {
+        //     angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        //     transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        // }
         //transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
         Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
