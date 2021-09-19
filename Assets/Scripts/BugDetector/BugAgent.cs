@@ -606,7 +606,7 @@ public class BugAgent : Agent
         return (value - min) / (max - min);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
         if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
