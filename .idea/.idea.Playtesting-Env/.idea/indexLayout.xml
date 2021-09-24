@@ -26,6 +26,7 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
+      <Path>Temp</Path>
       <Path>imgs</Path>
       <Path>obj</Path>
     </explicitExcludes>
