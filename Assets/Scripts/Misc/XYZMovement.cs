@@ -10,6 +10,8 @@ public class XYZMovement : MonoBehaviour
 
     public float _rangeZ;
 
+    public bool _mustBeActivated;
+
     public int _waitTime;
 
     public int _time;
@@ -20,11 +22,31 @@ public class XYZMovement : MonoBehaviour
 
     private GameObject _agent;
     private Vector3 _offset;
+    private Vector3 _initialPosition;
+    private Vector3 _initialRange;
 
+    private bool _activated;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _activated = false;
+        _initialPosition = transform.position;
+        _initialRange = new Vector3(_rangeX, _rangeY, _rangeZ);
+    }
+
+    public void ResetMovement()
+    {
+        transform.position = _initialPosition;
+        _rangeX = _initialRange.x;
+        _rangeY = _initialRange.y;
+        _rangeZ = _initialRange.z;
+        _activated = false;
+        elapsedFrames = 0;
+    }
+
+    public void SetActivated()
+    {
+        _activated = true;
     }
 
     private void OnTriggerStay(Collider collision)
@@ -32,12 +54,17 @@ public class XYZMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Agent"))
         {
             collision.attachedRigidbody.MovePosition(collision.attachedRigidbody.position + _offset);
+            if (_mustBeActivated)
+                _activated = true;
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (_mustBeActivated && !_activated)
+            return;
         
         if (elapsedFrames == 0)
         {
@@ -45,7 +72,8 @@ public class XYZMovement : MonoBehaviour
             _rangeY = -_rangeY;
             _rangeZ = -_rangeZ;
             _startingPosition = gameObject.transform.position;
-            _endPosition = _startingPosition + new Vector3(_rangeX, _rangeZ, _rangeY);
+            _endPosition = _startingPosition + new Vector3(_rangeX, _rangeY, _rangeZ);
+            _activated = false;
         }
 
         Vector3 previousPosition = transform.position;
@@ -56,6 +84,7 @@ public class XYZMovement : MonoBehaviour
         {
             gameObject.transform.position = interpolatedPosition;
         }
+
         _offset = transform.position - previousPosition;
     }
 }

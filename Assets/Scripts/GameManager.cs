@@ -26,10 +26,15 @@ public class GameManager : MonoBehaviour
     public ObjectPool _pointPool;
     public List<Obstacle> _obstacles = new List<Obstacle>();
     
+    // TODO: DELETE THIS, it's no use
+    public BugAcademy _academy;
+
     // Range of spawn of the obstacles. For PCG elements.
     public float _range_obstacles = 500f;
 
     public List<GameObject> _agents;
+    public List<GameObject> _goalAreas;
+    public List<XYZMovement> _movableObjectsToReset;
 
     private static System.Random rng = new System.Random();
     
@@ -77,8 +82,14 @@ public class GameManager : MonoBehaviour
             {
                 // The saved trajectories are normalized between [0,1].
                 // Unnormalize them to world coordinates.
-                _lines = drawTrajectory(loadTrajectories(), -250, 250, -250, 250, 1, 40);
+                _lines = drawTrajectory(loadTrajectories(), -250, 250, -250, 250, 1, 60);
             }
+        }
+        
+        // Press L to show the last saved trajectory
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _academy.AcademyReset();
         }
         
         // For plotting the coverage graph. Not used right now.

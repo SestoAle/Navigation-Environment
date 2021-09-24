@@ -29,6 +29,19 @@ public class BugAcademy : Academy
         {
             d.gameObject.SetActive(true);
         }
+        
+        // Activate the desired goal area and disactivate all the others
+        foreach (GameObject goalArea in GameManager.instance._goalAreas)
+        {
+            goalArea.SetActive(false);
+        }
+        GameManager.instance._goalAreas[(int)resetParameters["goal_area"] - 1].SetActive(true);
+        
+        // Reset the movable objects (platform, elevators, etc..) that must be reset after the end of the episode
+        foreach (XYZMovement objects in GameManager.instance._movableObjectsToReset)
+        {
+            objects.ResetMovement();
+        }
 
         // Spawn agents
         foreach (GameObject agent in GameManager.instance._agents)

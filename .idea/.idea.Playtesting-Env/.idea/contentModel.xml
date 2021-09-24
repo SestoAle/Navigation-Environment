@@ -80,6 +80,7 @@
           <e p="GameManager.cs" t="Include" />
           <e p="Misc" t="Include">
             <e p="CameraMovement.cs" t="Include" />
+            <e p="ExternalElevatorActivation.cs" t="Include" />
             <e p="ObjectPool.cs" t="Include" />
             <e p="RotateObject.cs" t="Include" />
             <e p="XYZMovement.cs" t="Include" />
