@@ -58,7 +58,8 @@ public class BugAcademy : Academy
             // Spawn agent at specific position
             float agentX = resetParameters["agent_spawn_x"];
             float agentz = resetParameters["agent_spawn_z"];
-            GameManager.instance.spawnAtPosition(agent, agentX, agentz, 1);
+            float agenty = resetParameters["agent_spawn_y"];
+            GameManager.instance.spawnAtPosition(agent, agentX, agentz, agenty);
 
             // Spawn the agent randomly
             //GameManager.instance.spawnAtRandom(agent, 3f, GameManager.instance._range_target);
