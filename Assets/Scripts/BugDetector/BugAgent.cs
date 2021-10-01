@@ -233,7 +233,7 @@ public class BugAgent : Agent
 
 
         // If the agent is grounded or not
-        float isGrounded = agentPosition.y == 1f ? 1f : 0f;
+        float isGrounded =_isGrounded ? 1f : 0f;
         // If the agent can do a double jump 
         float canDoubleJump = _doubleJump ? 1f : 0f;
 

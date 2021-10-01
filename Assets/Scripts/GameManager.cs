@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     
     // Files for replaying trajectories
     public TextAsset _trajectoryFile;
+    public List<TextAsset> _trajectoryFiles;
     public TextAsset _graphFile;
     private List<GameObject> _lines;
     public Material _correctLineMaterial;
@@ -84,6 +85,11 @@ public class GameManager : MonoBehaviour
                 // Unnormalize them to world coordinates.
                 _lines = drawTrajectory(loadTrajectories(), -250, 250, -250, 250, 1, 60);
             }
+            
+            // foreach(TextAsset tr in _trajectoryFiles)
+            // {
+            //     _lines = drawTrajectory(loadTrajectories(tr), -250, 250, -250, 250, 1, 60);
+            // }
         }
         
         // Press L to show the last saved trajectory
@@ -272,6 +278,12 @@ public class GameManager : MonoBehaviour
 
         return traj;
     }
+    public Trajectory loadTrajectories(TextAsset tr)
+    {
+        Trajectory traj = JsonUtility.FromJson<Trajectory>(tr.text);
+
+        return traj;
+    }
     
     // Load coverage graph from json. They are already normalized in world coordinates
     public CoverageGraph loadGraph()
@@ -314,11 +326,41 @@ public class GameManager : MonoBehaviour
 
         // Compute the mean if IM and IL
         float im_mean = 0;
-        foreach(float im_v in traj.im_values)
+        // foreach(float im_v in traj.im_values)
+        // {
+        //     im_mean += im_v;
+        // }
+        // im_mean /= traj.im_values.Length;
+        int meanLength = 0;
+        Vector3 activeGoalAreaPosition = new Vector3();
+        foreach (GameObject goalArea in _goalAreas)
         {
-            im_mean += im_v;
+            if (goalArea.activeInHierarchy)
+            {
+                activeGoalAreaPosition = goalArea.transform.position;
+                break;
+            }
         }
-        im_mean /= traj.im_values.Length;
+        for (int i = 0; i < traj.im_values.Length; i++)
+        {
+            Vector3 c_point = new Vector3(traj.x_s[i], traj.y_s[i], traj.z_s[i]);
+
+            // de-normalize
+            c_point.x = ((c_point.x + 1) / 2) * (x_max - x_min) + x_min;
+            c_point.z = ((c_point.z + 1) / 2) * (z_max - z_min) + z_min;
+            c_point.y = ((c_point.y + 1) / 2) * (y_max - y_min) + y_min;
+            
+
+            if (Vector3.Distance(activeGoalAreaPosition, c_point) < 1)
+            {
+                break;
+            }
+
+            im_mean += traj.im_values[i];
+            meanLength++;
+
+        }
+        im_mean /= meanLength;
 
         // Compute the mean if IM and IL
         float il_mean = 0;
