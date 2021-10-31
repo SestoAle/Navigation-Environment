@@ -366,7 +366,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   _discrete: 1
   _timeScale: 10
-  _manualInput: 1
+  _manualInput: 0
   _horizontalGrid: {fileID: 0}
   _globalGrid: {fileID: 0}
   _verticalGrid: {fileID: 0}
