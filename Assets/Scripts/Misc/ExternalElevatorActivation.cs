@@ -22,11 +22,4 @@ public class ExternalElevatorActivation : MonoBehaviour
                 _elevator.SetActivated();
         }
     }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

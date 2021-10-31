@@ -70,9 +70,4 @@ public class Horizontal2DGrid : MonoBehaviour
     {
         
     }
-
-    private void LateUpdate()
-    {
-        transform.rotation = Quaternion.identity;
-    }
 }

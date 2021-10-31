@@ -14,34 +14,41 @@ public class XYZMovement : MonoBehaviour
 
     public int _waitTime;
 
+    private bool started = false;
+
     public int _time;
     int elapsedFrames = 0;
 
-    private Vector3 _startingPosition;
-    private Vector3 _endPosition;
+    public Vector3 _startingPosition;
+    public Vector3 _endPosition;
 
     private GameObject _agent;
-    private Vector3 _offset;
-    private Vector3 _initialPosition;
-    private Vector3 _initialRange;
+    public Vector3 _offset;
+    public Vector3 _initialPosition;
+    public Vector3 _initialRange;
 
     private bool _activated;
     // Start is called before the first frame update
     void Start()
     {
         _activated = false;
+        started = true;
         _initialPosition = transform.position;
         _initialRange = new Vector3(_rangeX, _rangeY, _rangeZ);
+        ResetMovement();
     }
 
     public void ResetMovement()
     {
-        transform.position = _initialPosition;
-        _rangeX = _initialRange.x;
-        _rangeY = _initialRange.y;
-        _rangeZ = _initialRange.z;
-        _activated = false;
-        elapsedFrames = 0;
+        if(started)
+        {
+            transform.position = _initialPosition;
+            _rangeX = _initialRange.x;
+            _rangeY = _initialRange.y;
+            _rangeZ = _initialRange.z;
+            _activated = false;
+            elapsedFrames = 0;
+        }
     }
 
     public void SetActivated()

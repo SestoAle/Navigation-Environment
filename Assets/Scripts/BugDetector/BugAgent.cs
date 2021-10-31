@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using MLAgents;
+using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors;
 using System;
 using System.Runtime.InteropServices;
 using Object = System.Object;
@@ -23,16 +25,15 @@ public class BugAgent : Agent
     private CharacterController _characterController;
     private float turnSmoothVelocity;
 
-    
     // Whether to use a discrete or continuous action space
     public bool _discrete = true;
     
     // ML stuff
-    public BugAcademy _academy;
     List<float> observation = new List<float>();
     public int _timeScale = 15;
     private int _frameCount;
-    
+    public bool _manualInput;
+
     // Perceptors definition
     public Horizontal2DGrid _horizontalGrid;
     public Horizontal2DGrid _globalGrid;
@@ -63,15 +64,18 @@ public class BugAgent : Agent
     // List of keys in the environment (if any).
     public List<Key> keys;
 
+
     // Start is called before the first frame update
     void Start()
     {
         _characterController = gameObject.GetComponent<CharacterController>();
+        OnEpisodeBegin();
         if (GetComponent<Rigidbody>() != null)
             _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public override void AgentReset()
+    // Reset the scene after episode begin
+    public override void OnEpisodeBegin()
     {   
         // Reset variables
         _frameCount = 0;
@@ -82,7 +86,7 @@ public class BugAgent : Agent
         _doubleJump = false;
         _isAttached = false;
         distances = new List<float>();
-        _academy.AcademyReset();
+        GameManager.instance.SceneReset();
 
     }
 
@@ -214,7 +218,7 @@ public class BugAgent : Agent
             }
     }
 
-    public override void CollectObservations()
+    public override void CollectObservations(VectorSensor sensor)
     {
 
         observation = new List<float>();
@@ -267,8 +271,60 @@ public class BugAgent : Agent
             get3DGridObservation(_threeDGrid, observation);
         }
 
-        AddVectorObs(observation);
+        sensor.AddObservation(observation);
+    }
 
+    private void InferenceCollectObservations()
+    {
+        observation = new List<float>();
+        // Get agent position
+        Vector3 agentPosition = gameObject.transform.position;
+
+
+        // Normalize Agent position
+        float agentX;
+        float agentZ;
+        float agentY;
+
+        agentX = normalize(agentPosition.x, 250, -250);
+        agentZ = normalize(agentPosition.z, 250, -250);
+        agentY = normalize(agentPosition.y, 60, 1);
+
+
+        // If the agent is grounded or not
+        float isGrounded = _isGrounded ? 1f : 0f;
+        // If the agent can do a double jump 
+        float canDoubleJump = _doubleJump ? 1f : 0f;
+
+        // Add obs
+        observation.Add(agentX);
+        observation.Add(agentZ);
+        observation.Add(agentY);
+        observation.Add(isGrounded);
+        observation.Add(canDoubleJump);
+
+        // If we use a global grid, add the relative observations.
+        if (_globalGrid != null)
+        {
+            get2DGridObservation(_globalGrid, observation);
+        }
+
+        // If we use a 2D horizontal grid, add the relative observations.
+        if (_horizontalGrid != null)
+        {
+            get2DGridObservation(_horizontalGrid, observation);
+        }
+
+        // If we use a 2D vertical grid, add the relative observations.
+        if (_verticalGrid != null)
+        {
+            get2DGridObservation(_verticalGrid, observation);
+        }
+
+        if (_threeDGrid != null)
+        {
+            get3DGridObservation(_threeDGrid, observation);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -388,6 +444,7 @@ public class BugAgent : Agent
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("ASDJDASD");
             if (_isGrounded || (!_isGrounded && _doubleJump))
             {
                 jump = 0.8f;
@@ -469,16 +526,20 @@ public class BugAgent : Agent
         _jump = jump;
     }
 
-    public override void AgentAction(float[] vectorAction, string textAction)
+    // This replace AgentAction
+    public override void OnActionReceived(ActionBuffers actions)
     {
-        if (!_discrete)
+        if(!_manualInput)
         {
-            _horizontal = vectorAction[0];
-            _vertical = vectorAction[1];
-        }
-        else
-        {
-            DiscreteMovement((int)vectorAction[0]);
+            if (!_discrete)
+            {
+                _horizontal = actions.DiscreteActions[0];
+                _vertical = actions.DiscreteActions[1];
+            }
+            else
+            {
+                DiscreteMovement((int)actions.DiscreteActions[0]);
+            }
         }
     }
     
@@ -487,7 +548,7 @@ public class BugAgent : Agent
     {
         if (distance < eps)
         {
-            Done();
+            EndEpisode();
             return 1f;
         }
 
@@ -580,10 +641,6 @@ public class BugAgent : Agent
             direction.y = direction.y * 5;
             _rigidbody.MovePosition(_rigidbody.position + direction.normalized * _agentSpeed * Time.fixedDeltaTime);
         }
-        else
-        {
-            _characterController.Move(moveDir.normalized * _agentSpeed * Time.fixedDeltaTime);
-        }
 
     }
     
@@ -606,19 +663,35 @@ public class BugAgent : Agent
         return (value - min) / (max - min);
     }
 
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        if(_manualInput)
+        {
+            getHumanInput();
+        }
+            
+    }
+
     void FixedUpdate()
     {
-        
-        if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
+
+        //if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
+        //{
+        //    // Request a decision every _timeScale frames.
+        //    // The reward is given directly by the cubeRewards (if any).
+        //    RequestDecision();
+        //}
+        //else if(brain.brainType == BrainType.Player)
+        //{
+        //    // If the human is moving the agent, change the Input Specification
+        //    getHumanInput();
+        //}
+
+        if (_frameCount % _timeScale == 0 || _manualInput)
         {
             // Request a decision every _timeScale frames.
             // The reward is given directly by the cubeRewards (if any).
             RequestDecision();
-        }
-        else if(brain.brainType == BrainType.Player)
-        {
-            // If the human is moving the agent, change the Input Specification
-            getHumanInput();
         }
 
         _frameCount++;
@@ -626,17 +699,17 @@ public class BugAgent : Agent
         Movement(_horizontal, _vertical, _jump);
     }
 
-    // Get last action distribution probabilities
-    public float[] getLastProbabilitiesDistribution()
-    {
-        float[] probs = new float[9];
-        for (int i = 0; i < 9; i++)
-        {
-            probs[i] = lastProbabilitiesDistribution[0, i];
-        }
+    //// Get last action distribution probabilities
+    //public float[] getLastProbabilitiesDistribution()
+    //{
+    //    float[] probs = new float[9];
+    //    for (int i = 0; i < 9; i++)
+    //    {
+    //        probs[i] = lastProbabilitiesDistribution[0, i];
+    //    }
 
-        return probs;
-    }
+    //    return probs;
+    //}
 
     public float[] probsToLogits(float[] probs)
     {

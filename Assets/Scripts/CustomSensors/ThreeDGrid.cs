@@ -112,9 +112,4 @@ public class ThreeDGrid : Horizontal2DGrid
 
         created = true;
     }
-    
-    private void LateUpdate()
-    {
-        transform.rotation = Quaternion.identity;
-    }
 }

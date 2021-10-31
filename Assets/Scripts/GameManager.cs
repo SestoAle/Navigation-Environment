@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MLAgents;
+using Unity.MLAgents;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
     public ObjectPool _coinPool;
     public ObjectPool _pointPool;
     public List<Obstacle> _obstacles = new List<Obstacle>();
-    
-    // TODO: DELETE THIS, it's no use
-    public BugAcademy _academy;
+
+    // Env parameters for curriculum learning
+    private EnvironmentParameters _envParameters;
 
     // Range of spawn of the obstacles. For PCG elements.
     public float _range_obstacles = 500f;
@@ -60,51 +60,54 @@ public class GameManager : MonoBehaviour
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
+        // Get the envParameters
+        _envParameters = Academy.Instance.EnvironmentParameters;
         //Random.seed = 6;
     }
 
     int _frameCount = 0;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        // Press L to show the last saved trajectory
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            if (_lines != null)
-            {
-                foreach (GameObject l in _lines)
-                {
-                    Destroy(l);
-                }
+        //// Press L to show the last saved trajectory
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    if (_lines != null)
+        //    {
+        //        foreach (GameObject l in _lines)
+        //        {
 
-                _lines = null;
-            }
-            else
-            {
-                // The saved trajectories are normalized between [0,1].
-                // Unnormalize them to world coordinates.
-                _lines = drawTrajectory(loadTrajectories(), -250, 250, -250, 250, 1, 60);
-            }
+        //            Destroy(l);
+        //        }
+
+        //        _lines = null;
+        //    }
+        //    else
+        //    {
+        //        // The saved trajectories are normalized between [0,1].
+        //        // Unnormalize them to world coordinates.
+        //        _lines = drawTrajectory(loadTrajectories(), -250, 250, -250, 250, 1, 60);
+        //    }
             
-            // foreach(TextAsset tr in _trajectoryFiles)
-            // {
-            //     _lines = drawTrajectory(loadTrajectories(tr), -250, 250, -250, 250, 1, 60);
-            // }
-        }
+        //    // foreach(TextAsset tr in _trajectoryFiles)
+        //    // {
+        //    //     _lines = drawTrajectory(loadTrajectories(tr), -250, 250, -250, 250, 1, 60);
+        //    // }
+        //}
         
-        // Press L to show the last saved trajectory
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _academy.AcademyReset();
-        }
+        //// Press L to show the last saved trajectory
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    SceneReset();
+        //}
         
-        // For plotting the coverage graph. Not used right now.
-        //if (Input.GetKeyDown(KeyCode.C))
-        if (false)
-        {
-            _pointPool.destroyAllObjects();
-            drawGraph(loadGraph());
-        }
+        //// For plotting the coverage graph. Not used right now.
+        ////if (Input.GetKeyDown(KeyCode.C))
+        //if (false)
+        //{
+        //    _pointPool.destroyAllObjects();
+        //    drawGraph(loadGraph());
+        //}
     }
     
     // Destroy all pooled objects
@@ -227,7 +230,67 @@ public class GameManager : MonoBehaviour
 
         return thereIs;
     }
-    
+
+    // This is equivalent to AcademyReset when we had the Academy.
+    // Must be called by the Agent on OnEpisodeBegin().
+    public void SceneReset()
+    {
+        // Destroy pulled objects
+        destroyPoolObjects();
+
+        // Reset keys and doors (if any)
+        foreach (Key k in GameManager.instance._keys)
+        {
+            k.gameObject.SetActive(true);
+            k._isPickedUp = false;
+        }
+        foreach (Door d in GameManager.instance._doorOpened)
+        {
+            d.gameObject.SetActive(false);
+        }
+        foreach (Door d in GameManager.instance._doorClosed)
+        {
+            d.gameObject.SetActive(true);
+        }
+
+        // Activate the desired goal area and disactivate all the others
+        foreach (GameObject goalArea in GameManager.instance._goalAreas)
+        {
+            goalArea.SetActive(false);
+        }
+        _goalAreas[(int)_envParameters.GetWithDefault("goal_area", 1.0f) - 1].SetActive(true);
+
+        // Reset the movable objects (platform, elevators, etc..) that must be reset after the end of the episode
+        foreach (XYZMovement objects in _movableObjectsToReset)
+        {
+            objects.ResetMovement();
+        }
+
+        // Spawn agents
+        foreach (GameObject agent in GameManager.instance._agents)
+        {
+            // Spawn the occupancy map
+            if (agent.GetComponentInChildren<ThreeDGrid>() != null)
+            {
+                if (!agent.GetComponentInChildren<ThreeDGrid>().created)
+                {
+                    agent.GetComponentInChildren<ThreeDGrid>().createLocalGrid();
+                }
+            }
+
+            // Spawn agent at specific position
+            _envParameters.GetWithDefault("agent_spawn_x", 0.0f);
+            float agentX = _envParameters.GetWithDefault("agent_spawn_x", 0.0f);
+            float agentz = _envParameters.GetWithDefault("agent_spawn_z", 0.0f);
+            float agenty = _envParameters.GetWithDefault("agent_spawn_y", 1.7f);
+            spawnAtPosition(agent, agentX, agentz, agenty);
+
+            // Spawn the agent randomly
+            //GameManager.instance.spawnAtRandom(agent, 3f, GameManager.instance._range_target);
+        }
+
+    }
+
     // Check if there is an agent at a specific position before the next frame.
     // Used for spawning randomly agent and/or obstacles.
     public bool thereIsAnAgent(Vector3 position, float radiusToCheck)
