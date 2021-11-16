@@ -598,6 +598,7 @@ public class BugAgent : Agent
             }
             direction = new Vector3(horizontal, 0, vertical);
         }
+        
         // Movement down
         if (_rigidbody.velocity.y < 1.5)
         {

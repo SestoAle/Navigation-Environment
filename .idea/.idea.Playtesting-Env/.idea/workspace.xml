@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Action Elements.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Action Elements.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Agent Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Agent Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Cube Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Cube Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Door Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Door Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ground Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Ground Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Key Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Key Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Right Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Right Line.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Target Material 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Target Material 2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Wrong Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Wrong Line.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +109,7 @@
       <workItem from="1632931869178" duration="1002000" />
       <workItem from="1632989165780" duration="4613000" />
       <workItem from="1633073910434" duration="1282000" />
-      <workItem from="1637055361502" duration="13915000" />
+      <workItem from="1637055361502" duration="14947000" />
     </task>
     <servers />
   </component>
