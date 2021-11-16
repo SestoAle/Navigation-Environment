@@ -7,6 +7,9 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Construction_Site_Column" t="Include">
+          <e p="README_Import_to_2018-HDRP.txt" t="Include" />
+        </e>
         <e p="ML-Agents" t="Include">
           <e p="Editor" t="Include">
             <e p="AgentEditor.cs" t="Include" />
@@ -60,6 +63,9 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Animator Script" t="Include">
+            <e p="AgentAnimator.cs" t="Include" />
+          </e>
           <e p="BugDetector" t="Include">
             <e p="ActionList.cs" t="Include" />
             <e p="BugAcademy.cs" t="Include" />

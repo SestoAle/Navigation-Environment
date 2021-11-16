@@ -11,12 +11,17 @@
       <Path>Library/PackageCache/com.unity.ide.vscode@1.2.3</Path>
       <Path>Library/PackageCache/com.unity.multiplayer-hlapi@1.0.8</Path>
       <Path>Library/PackageCache/com.unity.purchasing@3.1.0</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.core@7.6.0</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.high-definition-config@7.6.0</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.high-definition@7.6.0</Path>
+      <Path>Library/PackageCache/com.unity.shadergraph@7.6.0</Path>
       <Path>Library/PackageCache/com.unity.sysroot.linux-x86_64@0.1.14-preview</Path>
       <Path>Library/PackageCache/com.unity.sysroot@0.1.19-preview</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.24</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.1.4</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.2.18</Path>
       <Path>Library/PackageCache/com.unity.toolchain.linux-x86_64@0.1.18-preview</Path>
+      <Path>Library/PackageCache/com.unity.visualeffectgraph@7.6.0</Path>
       <Path>Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.7</Path>
       <Path>Library/PackageCache/nuget.mono-cecil@0.1.6-preview</Path>
       <Path>Packages</Path>
@@ -26,6 +31,7 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
+      <Path>Temp</Path>
       <Path>imgs</Path>
       <Path>obj</Path>
     </explicitExcludes>

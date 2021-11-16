@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/traj.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/traj.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Action Elements.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Action Elements.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Agent Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Agent Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Cube Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Cube Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Door Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Door Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ground Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Ground Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Key Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Key Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Right Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Right Line.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Target Material 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Target Material 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Wrong Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Wrong Line.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitySDK.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnitySDK.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +29,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animator Script/AgentAnimator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CustomSensors/ThreeDGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/ActionList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -30,8 +40,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Animator Script/AgentAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" />
       </list>
     </option>
   </component>
@@ -49,6 +61,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -109,6 +123,7 @@
       <workItem from="1632931869178" duration="1002000" />
       <workItem from="1632989165780" duration="4613000" />
       <workItem from="1633073910434" duration="1282000" />
+      <workItem from="1637055361502" duration="13915000" />
     </task>
     <servers />
   </component>
@@ -125,5 +140,13 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="624" y="215" width="672" height="679" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.25.1920.1055@0.25.1920.1055" timestamp="1632990196716" />
+    <state x="619" y="252" key="run.anything.popup" timestamp="1637072033398">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="619" y="252" key="run.anything.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1637072033398" />
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup" timestamp="1637061889040">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1637061889040" />
   </component>
 </project>
