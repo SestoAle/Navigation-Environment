@@ -551,25 +551,25 @@ public class BugAgent : Agent
             switch(_climbDirection)
             {
                 case 0:
-                    if(brain.brainType == BrainType.Internal)
+                    if(brain.brainType == BrainType.Player)
                         direction = new Vector3(horizontal, vertical, 0);
                     else
                         direction = new Vector3(horizontal, vertical, 0);
                     break;
                 case 1:
-                    if(brain.brainType == BrainType.Internal)
+                    if(brain.brainType == BrainType.Player)
                         direction = new Vector3(0, vertical, horizontal);
                     else
                         direction = new Vector3(0, -horizontal, vertical);
                     break;
                 case 2:
-                    if(brain.brainType == BrainType.Internal)
+                    if(brain.brainType == BrainType.Player)
                         direction = new Vector3(0, vertical, -horizontal);
                     else
                         direction = new Vector3(0, horizontal, vertical);
                     break;
                 default:
-                    if(brain.brainType == BrainType.Internal)
+                    if(brain.brainType == BrainType.Player)
                         direction = new Vector3(-horizontal, vertical, 0);
                     else
                         direction = new Vector3(horizontal, -vertical, 0);
