@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MLAgents;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -43,6 +44,9 @@ public class GameManager : MonoBehaviour
     public List<Key> _keys;
     public List<Door> _doorClosed;
     public List<Door> _doorOpened;
+    
+    // Cinemachine
+    public PlayableDirector _director;
 
     void Awake()
     {
@@ -67,6 +71,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            _director.Play();
+        }
         // Press L to show the last saved trajectory
         if (Input.GetKeyDown(KeyCode.L))
         {
