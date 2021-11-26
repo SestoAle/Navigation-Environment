@@ -38,6 +38,7 @@ public class BugAgent : Agent
     public Horizontal2DGrid _globalGrid;
     public Vertical2DGrid _verticalGrid;
     public ThreeDGrid _threeDGrid;
+    public Rays _rays;
 
     public float _eps = 1f;
     public float _radiusAround = 10f;
@@ -54,7 +55,7 @@ public class BugAgent : Agent
     private bool _doubleJump = false;
     private bool _isAttached = false;
     private int _climbDirection;
-    
+
     private Rigidbody _rigidbody;
     
     // For a possible target reward.
@@ -67,6 +68,7 @@ public class BugAgent : Agent
     void Start()
     {
         _characterController = gameObject.GetComponent<CharacterController>();
+        _rays = GetComponent<Rays>();
         if (GetComponent<Rigidbody>() != null)
             _rigidbody = GetComponent<Rigidbody>();
     }
@@ -186,7 +188,22 @@ public class BugAgent : Agent
                 }
     }
 
-       // Get the local observation from 3D grid in form of local matrix.
+    public void getRayCollisionObservation(Rays rays, List<float> observations)
+    {
+        List<RayCollision> _rayCollisions = rays.HitRays();
+
+        foreach (RayCollision rc in _rayCollisions)
+        {
+            float distance = rc.getDistance();
+            distance = normalize(distance, rays._maxDistance, 0);
+            float type = getTypeOfCollision(rc.getGameObject());
+            type = normalize(type, 4, 0);
+            observations.Add(type);
+            observations.Add(distance);
+        }
+    }
+
+    // Get the local observation from 3D grid in form of local matrix.
     public void get2DGridObservation(Horizontal2DGrid grid, List<float> observations)
     {
         // Get the cube grid
@@ -261,10 +278,17 @@ public class BugAgent : Agent
         {
             get2DGridObservation(_verticalGrid, observation);
         }
-
+        
+        // If we use a 3D vertical grid, add the relative observations.
         if (_threeDGrid != null)
         {
             get3DGridObservation(_threeDGrid, observation);
+        }
+        
+        // If we use a raycast, add the relatvie observations.
+        if (_rays != null)
+        {
+            getRayCollisionObservation(_rays, observation);
         }
 
         AddVectorObs(observation);
@@ -609,17 +633,17 @@ public class BugAgent : Agent
     void FixedUpdate()
     {
         
-        if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
+        // if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
         {
             // Request a decision every _timeScale frames.
             // The reward is given directly by the cubeRewards (if any).
             RequestDecision();
         }
-        else if(brain.brainType == BrainType.Player)
-        {
-            // If the human is moving the agent, change the Input Specification
-            getHumanInput();
-        }
+        // else if(brain.brainType == BrainType.Player)
+        // {
+        //     // If the human is moving the agent, change the Input Specification
+        //     getHumanInput();
+        // }
 
         _frameCount++;
 

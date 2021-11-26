@@ -74,6 +74,8 @@
           <e p="CustomSensors" t="Include">
             <e p="CubeCollision.cs" t="Include" />
             <e p="Horizontal2DGrid.cs" t="Include" />
+            <e p="RayCollision.cs" t="Include" />
+            <e p="Rays.cs" t="Include" />
             <e p="ThreeDGrid.cs" t="Include" />
             <e p="Vertical2DGrid.cs" t="Include" />
           </e>
