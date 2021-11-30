@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitySDK.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnitySDK.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CustomSensors/Rays.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CustomSensors/Rays.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/RewardCube.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAcademy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CustomSensors/Rays.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -116,6 +115,8 @@
       <workItem from="1633073910434" duration="1282000" />
       <workItem from="1637826507808" duration="5201000" />
       <workItem from="1637832378737" duration="1299000" />
+      <workItem from="1638258064659" duration="42000" />
+      <workItem from="1638258125039" duration="1152000" />
     </task>
     <servers />
   </component>

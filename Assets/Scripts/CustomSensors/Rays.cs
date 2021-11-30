@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEditor.Experimental;
@@ -16,6 +17,7 @@ public class Rays : MonoBehaviour
     
     private RaycastHit GetRayCastHit(float maxDistance, float angle, float height)
     {
+        _hits.Clear();
         int wallMask = 1 << LayerMask.NameToLayer("Wall");
         int coinMask = 1 << LayerMask.NameToLayer("Coin");
         int rampMask = 1 << LayerMask.NameToLayer("Ramp");
@@ -33,15 +35,13 @@ public class Rays : MonoBehaviour
         if (Physics.SphereCast(pos, _sphereRadius, direction, out hit, maxDistance, finalMask))
         {
             // if(debug)
-            // Debug.DrawRay(pos, direction * hit.distance, Color.yellow, 1/60f);
-            _hits.Add(hit);
+            Debug.DrawRay(pos, direction * hit.distance, Color.yellow, 1/60f);
             return hit;
         }
         else
         {
             // if(debug)
-            // Debug.DrawRay(pos, direction * maxDistance, Color.white, 1/60f);
-            _hits.Add(hit);
+            Debug.DrawRay(pos, direction * maxDistance, Color.white, 1/60f);
             return hit;
         }
     }
@@ -66,5 +66,9 @@ public class Rays : MonoBehaviour
         }
         
         return _rayCollisions;
+    }
+
+    public void FixedUpdate()
+    {
     }
 }
