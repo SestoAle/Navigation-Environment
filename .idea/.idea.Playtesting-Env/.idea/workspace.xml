@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CustomSensors/Rays.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CustomSensors/Rays.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitySDK.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnitySDK.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CustomSensors/RayCollision.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CustomSensors/ThreeDGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/Door.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/ActionList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CustomSensors/CubeCollision.cs" root0="FORCE_HIGHLIGHTING" />
@@ -32,8 +35,8 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CustomSensors/RayCollision.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CustomSensors/Rays.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" />
       </list>
     </option>
   </component>
@@ -117,6 +120,7 @@
       <workItem from="1637832378737" duration="1299000" />
       <workItem from="1638258064659" duration="42000" />
       <workItem from="1638258125039" duration="1152000" />
+      <workItem from="1638445797916" duration="1202000" />
     </task>
     <servers />
   </component>

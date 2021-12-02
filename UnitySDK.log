@@ -1,4 +1,4 @@
-25/11/2021 10:24:58
+02/12/2021 13:01:01
  
 Warning
 Assets/Scripts/CustomSensors/ThreeDGrid.cs(9,30): warning CS0108: 'ThreeDGrid.gridMatrix' hides inherited member 'Horizontal2DGrid.gridMatrix'. Use the new keyword if hiding was intended.
@@ -17,6 +17,9 @@ Assets/Scripts/GameManager.cs(150,13): warning CS0219: The variable 'obstaclesMa
 
 Warning
 Assets/Scripts/GameManager.cs(152,13): warning CS0219: The variable 'targetMask' is assigned but its value is never used
+
+Warning
+Assets/Scripts/BugDetector/BugAgent.cs(286,13): warning CS0162: Unreachable code detected
 
 Warning
 Assets/Scripts/GameManager.cs(408,9): warning CS0618: 'LineRenderer.SetWidth(float, float)' is obsolete: 'Use startWidth, endWidth or widthCurve instead.'
@@ -38,4 +41,12 @@ Assets/ML-Agents/Scripts/Monitor.cs(491,29): warning CS0162: Unreachable code de
 
 Warning
 Assets/Scripts/GameManager.cs(66,9): warning CS0414: The field 'GameManager._frameCount' is assigned but its value is never used
+
+Warning
+System.Windows.Forms.dll assembly is referenced by user code, but is not supported on StandaloneLinux64 platform. Various failures might follow.
+UnityEngine.GUIUtility:ProcessEvent (int,intptr) (at /home/bokken/buildslave/unity/build/Modules/IMGUI/GUIUtility.cs:197)
+
+Log
+Build completed with a result of 'Succeeded' in 14 seconds (14477 ms)
+UnityEngine.GUIUtility:ProcessEvent (int,intptr) (at /home/bokken/buildslave/unity/build/Modules/IMGUI/GUIUtility.cs:197)
 
