@@ -46,6 +46,7 @@ public class BugAcademy : Academy
         // Spawn agents
         foreach (GameObject agent in GameManager.instance._agents)
         {
+            
             // Spawn the occupancy map
             if (agent.GetComponentInChildren<ThreeDGrid>() != null)
             {
