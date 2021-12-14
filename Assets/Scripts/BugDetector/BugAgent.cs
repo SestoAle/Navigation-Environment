@@ -267,6 +267,7 @@ public class BugAgent : Agent
 
         if (_threeDGrid != null)
         {
+            _threeDGrid.transform.rotation = Quaternion.identity;
             get3DGridObservation(_threeDGrid, observation);
         }
 
@@ -584,7 +585,7 @@ public class BugAgent : Agent
         }
         else
         {
-            if (_isAttached && _rigidbody.velocity.y < 0.2f)
+            if (_isAttached && _rigidbody.velocity.y < 0f)
             {
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
             }
@@ -600,7 +601,7 @@ public class BugAgent : Agent
         }
         
         // Movement down
-        if (_rigidbody.velocity.y < 1.5)
+        if (_rigidbody.velocity.y < 0)
         {
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
