@@ -280,8 +280,8 @@ public class BugAgent : Agent
         }
         
         // If we use a 3D vertical grid, add the relative observations.
-        // if (_threeDGrid != null)
-        if (false)
+        if (_threeDGrid != null)
+        // if (false)
         {
             get3DGridObservation(_threeDGrid, observation);
         }
@@ -634,7 +634,7 @@ public class BugAgent : Agent
     void FixedUpdate()
     {
         
-        if (brain.brainType != BrainType.Player && _frameCount % _timeScale == 0)
+        if (_frameCount % _timeScale == 0)
         {
             // Request a decision every _timeScale frames.
             // The reward is given directly by the cubeRewards (if any).
