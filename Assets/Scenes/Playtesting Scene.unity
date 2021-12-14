@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13013.007, g: 12513.228, b: 14271.182, a: 1}
+  m_IndirectSpecularColor: {r: 13080.064, g: 12571.619, b: 14316.3545, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25796,6 +25796,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8719954316185981307, guid: 0ded052fcc3124d429d281d60d49d4a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8747035720701088977, guid: 0ded052fcc3124d429d281d60d49d4a1,
         type: 3}
       propertyPath: m_Layer
@@ -25820,10 +25825,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.26547137
-  m_Height: 1.2565318
+  m_Radius: 0.1270818
+  m_Height: 0.85249937
   m_Direction: 1
-  m_Center: {x: -0.0142739415, y: 0.5639995, z: 0.016069263}
+  m_Center: {x: 0, y: 0.4265098, z: 0.000593856}
 --- !u!114 &1550409496
 MonoBehaviour:
   m_ObjectHideFlags: 0

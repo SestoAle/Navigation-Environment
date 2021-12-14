@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitySDK.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnitySDK.log" afterDir="false" />
     </list>
@@ -117,7 +115,7 @@
       <workItem from="1637139647653" duration="1563000" />
       <workItem from="1637415056140" duration="653000" />
       <workItem from="1639469459191" duration="276000" />
-      <workItem from="1639473096511" duration="839000" />
+      <workItem from="1639473096511" duration="1439000" />
     </task>
     <servers />
   </component>
