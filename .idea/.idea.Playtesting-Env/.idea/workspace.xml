@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Construction_Site_Column.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Construction_Site_Column/README_Import_to_2018-HDRP.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animator Script.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animator Script/AgentAnimator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitySDK.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnitySDK.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +21,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/ActionList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CustomSensors/CubeCollision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ML-Agents/Scripts/Agent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAcademy.cs" root0="FORCE_HIGHLIGHTING" />
@@ -121,6 +118,7 @@
       <workItem from="1637415056140" duration="653000" />
       <workItem from="1639469459191" duration="276000" />
       <workItem from="1639473096511" duration="2049000" />
+      <workItem from="1639665860969" duration="608000" />
     </task>
     <servers />
   </component>
@@ -134,7 +132,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
