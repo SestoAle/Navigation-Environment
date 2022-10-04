@@ -18,7 +18,8 @@ For the visualization tool, see this [repo](https://github.com/SestoAle/VisCCPT)
 <p align="center">
     <img src="imgs/top_screen.png" width="600">
 </p>
-### Play the game
+
+# Play the game
 
 You can play the game moving around with 
 WASD and jumping with Space. 
