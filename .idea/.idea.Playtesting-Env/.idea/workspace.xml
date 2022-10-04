@@ -4,6 +4,10 @@
     <list default="true" id="c101456e-c416-45e7-9874-c46aaad61763" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Playtesting-Env/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugDetector/RewardCube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugDetector/RewardCube.cs" afterDir="false" />
+>>>>>>> main
       <change beforePath="$PROJECT_DIR$/UnitySDK.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnitySDK.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,12 +33,20 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/Playtesting Scene.unity" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
+<<<<<<< HEAD
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAcademy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" />
       </list>
     </option>
+=======
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Misc/RotateObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/BugAgent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/BugDetector/RewardCube.cs" />
+    </changedPaths>
+>>>>>>> main
   </component>
   <component name="ProjectId" id="1xldIDJMQVNGxxHyaijoU8vwNiL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -105,6 +117,7 @@
       <updated>1630933527368</updated>
       <workItem from="1630933529973" duration="1303000" />
       <workItem from="1631522712704" duration="5177000" />
+<<<<<<< HEAD
       <workItem from="1631785329094" duration="3610000" />
       <workItem from="1632380097065" duration="5465000" />
       <workItem from="1632469680752" duration="977000" />
@@ -119,6 +132,9 @@
       <workItem from="1639469459191" duration="276000" />
       <workItem from="1639473096511" duration="2049000" />
       <workItem from="1639665860969" duration="608000" />
+=======
+      <workItem from="1631688946874" duration="609000" />
+>>>>>>> main
     </task>
     <servers />
   </component>

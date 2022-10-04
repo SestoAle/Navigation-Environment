@@ -1,2 +1,47 @@
+<<<<<<< HEAD
 14/12/2021 17:17:54
  
+=======
+9/19/2021 11:12:38 PM
+ 
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+Log
+SALDKASJDJ
+UnityEngine.Debug:Log (object)
+RewardCube:OnTriggerEnter (UnityEngine.Collider) (at Assets/Scripts/BugDetector/RewardCube.cs:25)
+
+>>>>>>> main
