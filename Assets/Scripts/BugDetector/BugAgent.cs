@@ -50,9 +50,12 @@ public class BugAgent : Agent
     [HideInInspector]
     public float _jump;
     
-    private bool _isGrounded = false;
-    private bool _doubleJump = false;
-    private bool _isAttached = false;
+    [HideInInspector]
+    public bool _isGrounded = false;
+    [HideInInspector]
+    public bool _doubleJump = false;
+    [HideInInspector]
+    public bool _isAttached = false;
     private int _climbDirection;
     
     private Rigidbody _rigidbody;
@@ -233,7 +236,7 @@ public class BugAgent : Agent
 
 
         // If the agent is grounded or not
-        float isGrounded = agentPosition.y == 1f ? 1f : 0f;
+        float isGrounded =_isGrounded ? 1f : 0f;
         // If the agent can do a double jump 
         float canDoubleJump = _doubleJump ? 1f : 0f;
 
@@ -264,6 +267,7 @@ public class BugAgent : Agent
 
         if (_threeDGrid != null)
         {
+            _threeDGrid.transform.rotation = Quaternion.identity;
             get3DGridObservation(_threeDGrid, observation);
         }
 
@@ -305,7 +309,7 @@ public class BugAgent : Agent
             }
         }
 
-        // If it is a climbable surface, check also the contact dretcion
+        // If it is a climbable surface, check also the contact direction
         if (other.gameObject.CompareTag("Climbable"))
         {
             _isAttached = true;
@@ -328,7 +332,6 @@ public class BugAgent : Agent
             {
                 _climbDirection = 3;
             }
-
         }
     }
 
@@ -362,29 +365,59 @@ public class BugAgent : Agent
         float vertical = 0;
         float jump = 0;
 
-        if(Input.GetKey(KeyCode.W))
+        if (!_isAttached)
         {
-            horizontal += 0;
-            vertical += 1;
+            if (Input.GetKey(KeyCode.W))
+            {
+                horizontal += Camera.main.transform.forward.x;
+                vertical += Camera.main.transform.forward.z;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                horizontal += -Camera.main.transform.right.x;
+                vertical += -Camera.main.transform.right.z;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                horizontal += -Camera.main.transform.forward.x;
+                vertical += -Camera.main.transform.forward.z;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                horizontal += Camera.main.transform.right.x;
+                vertical += Camera.main.transform.right.z;
+            }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                horizontal += 0;
+                vertical += 1;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                horizontal += -1;
+                vertical += 0;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                horizontal += 0;
+                vertical += -1;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                horizontal += 1;
+                vertical += 0;
+            } 
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            horizontal -= 1;
-            vertical += 0;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            horizontal += 0;
-            vertical -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            horizontal += 1;
-            vertical += 0;
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -400,6 +433,7 @@ public class BugAgent : Agent
             horizontal += 0;
             vertical += 0;
         }
+
         _horizontal = horizontal;
         _vertical = vertical;
         _jump = jump;
@@ -518,16 +552,28 @@ public class BugAgent : Agent
             switch(_climbDirection)
             {
                 case 0:
-                    direction = new Vector3(horizontal, vertical, 0);
+                    if(brain.brainType == BrainType.Player)
+                        direction = new Vector3(horizontal, vertical, 0);
+                    else
+                        direction = new Vector3(horizontal, vertical, 0);
                     break;
                 case 1:
-                    direction = new Vector3(0, -horizontal, vertical);
+                    if(brain.brainType == BrainType.Player)
+                        direction = new Vector3(0, vertical, horizontal);
+                    else
+                        direction = new Vector3(0, -horizontal, vertical);
                     break;
                 case 2:
-                    direction = new Vector3(0, horizontal, vertical);
+                    if(brain.brainType == BrainType.Player)
+                        direction = new Vector3(0, vertical, -horizontal);
+                    else
+                        direction = new Vector3(0, horizontal, vertical);
                     break;
                 default:
-                    direction = new Vector3(horizontal, -vertical, 0);
+                    if(brain.brainType == BrainType.Player)
+                        direction = new Vector3(-horizontal, vertical, 0);
+                    else
+                        direction = new Vector3(horizontal, -vertical, 0);
                     break;
             }
             
@@ -553,6 +599,7 @@ public class BugAgent : Agent
             }
             direction = new Vector3(horizontal, 0, vertical);
         }
+        
         // Movement down
         if (_rigidbody.velocity.y < 0)
         {
@@ -565,14 +612,27 @@ public class BugAgent : Agent
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         //transform.forward = direction;
-        //transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+         // Rotate the agent only in player mode
+         if (!_isAttached)
+         {
+             
+             if (brain.brainType == BrainType.Player)
+             {
+                 angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
+             }
+             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f); 
+         }
+
 
         Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
         if (_rigidbody != null)
         {
             direction = direction.normalized * _agentSpeed * Time.fixedDeltaTime;
             direction.y = direction.y * 5;
+
             _rigidbody.MovePosition(_rigidbody.position + direction.normalized * _agentSpeed * Time.fixedDeltaTime);
+
         }
         else
         {

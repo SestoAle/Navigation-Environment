@@ -15,6 +15,7 @@ TagManager:
   - Climbable
   - Reward
   - OnlyPlane
+  - Moving Platform
   layers:
   - Default
   - TransparentFX

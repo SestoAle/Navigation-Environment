@@ -29,10 +29,24 @@ public class BugAcademy : Academy
         {
             d.gameObject.SetActive(true);
         }
+        
+        // Activate the desired goal area and disactivate all the others
+        foreach (GameObject goalArea in GameManager.instance._goalAreas)
+        {
+            goalArea.SetActive(false);
+        }
+        GameManager.instance._goalAreas[(int)resetParameters["goal_area"] - 1].SetActive(true);
+        
+        // Reset the movable objects (platform, elevators, etc..) that must be reset after the end of the episode
+        foreach (XYZMovement objects in GameManager.instance._movableObjectsToReset)
+        {
+            objects.ResetMovement();
+        }
 
         // Spawn agents
         foreach (GameObject agent in GameManager.instance._agents)
         {
+            
             // Spawn the occupancy map
             if (agent.GetComponentInChildren<ThreeDGrid>() != null)
             {
@@ -45,7 +59,8 @@ public class BugAcademy : Academy
             // Spawn agent at specific position
             float agentX = resetParameters["agent_spawn_x"];
             float agentz = resetParameters["agent_spawn_z"];
-            GameManager.instance.spawnAtPosition(agent, agentX, agentz, 1);
+            float agenty = resetParameters["agent_spawn_y"];
+            GameManager.instance.spawnAtPosition(agent, agentX, agentz, agenty);
 
             // Spawn the agent randomly
             //GameManager.instance.spawnAtRandom(agent, 3f, GameManager.instance._range_target);
