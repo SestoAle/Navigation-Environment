@@ -6,7 +6,8 @@ This repo contains the Navigation Environment used in the paper.
 
 A link to our paper can be found in [arxiv](https://arxiv.org/pdf/2202.10057).
 
-For the visualization tool, see this [repo](https://github.com/SestoAle/CCPT).
+For the CCPT algorithm, see this [repo](https://github.com/SestoAle/CCPT).
+
 For the visualization tool, see this [repo](https://github.com/SestoAle/VisCCPT).
 
 <br/>
