@@ -28,6 +28,8 @@ WASD and jumping with Space.
 # Game Builds
 You can download directly the Linux built files of the game with this [link](https://drive.google.com/file/d/1phfe0bA0bNNvqa_EngWnsgl1-1yWnV3O/view?usp=sharing).
 
+You can download these files to start training your agent without Unity. See [here](https://github.com/SestoAle/CCPT) for an example. 
+
 # Prerequsites
 | Software                                                 | Version         | Required |
 | ---------------------------------------------------------|-----------------| ---------|
