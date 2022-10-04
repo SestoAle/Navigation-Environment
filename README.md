@@ -11,7 +11,7 @@ For the visualization tool, see this [repo](https://github.com/SestoAle/VisCCPT)
 
 <br/>
 <p align="center">
-    <img src="imgs/CCPT_teaser.png" width="600">
+    <img src="imgs/CCPT_teaser.png" width="800">
 </p>
 
 <br/>
