@@ -23,7 +23,10 @@ For the visualization tool, see this [repo](https://github.com/SestoAle/VisCCPT)
 You can play the game moving around with 
 WASD and jumping with Space. 
 
-### Prerequsites
+# Game Builds
+You can download directly the Linux built files of the game with this [link](https://drive.google.com/file/d/1phfe0bA0bNNvqa_EngWnsgl1-1yWnV3O/view?usp=sharing).
+
+# Prerequsites
 | Software                                                 | Version         | Required |
 | ---------------------------------------------------------|-----------------| ---------|
 | **Unity** | tested on v2019.4.28f1 | Yes |
@@ -32,4 +35,4 @@ WASD and jumping with Space.
 **The project was tested only on Linux and Mac OS**.
 
 You can import the required ml-agents folders with the link above.
-ml-agents is required just for linking Unity to Python: I use my implementation for DRL algorithms.
+ml-agents is required just for linking Unity to Python: we used the algorithm linked in this repo.
