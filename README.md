@@ -1,27 +1,23 @@
-# Playtesting-Env
+# Navigation Environment
+Official codebase for *"Automatic Gameplay Testing and Validation with Curiosity-Conditioned Proximal Trajectories"* paper.
+Alessandro Sestini, Linus Gisslén, Joakim Bergdahl, Konrad Tollmar, and Andrew D. Bagdanov.
 
-A relatively big environment (500 m x 500 m x 50 m) for studying automated playtesting through **combination of Intrinsic
-Motivation and Imitation Learning.**
+This repo contains the Navigation Environment used in the paper.
 
-The environment should define a complex and elaborate navigation landscape, to simulate a 
-complex real scenario of modern video games. This will be covered with some "bugs" which will be properly identified.
+A link to our paper can be found in [arxiv](https://arxiv.org/pdf/2202.10057).
 
-It is still a work in progress. An example of the current state:
+For the visualization tool, see this [repo](https://github.com/SestoAle/CCPT).
+For the visualization tool, see this [repo](https://github.com/SestoAle/VisCCPT).
 
+<br/>
 <p align="center">
-<img  src="imgs/screenshot.gif" width="60%" height="60%"/>
+    <img src="imgs/CCPT_teaser.png" width="600">
 </p>
 
-### TODOs
-
-- Add more aesthetic elements;
-- Add more features:
-    - enemies?
-    - hazards?
-    - interactables (like doors, keys and treasures)?
-    - etc...
-- Add more things to test;
-
+<br/>
+<p align="center">
+    <img src="imgs/top_screen.png" width="600">
+</p>
 ### Play the game
 
 You can play the game moving around with 
@@ -37,6 +33,3 @@ WASD and jumping with Space.
 
 You can import the required ml-agents folders with the link above.
 ml-agents is required just for linking Unity to Python: I use my implementation for DRL algorithms.
-    
-
-
