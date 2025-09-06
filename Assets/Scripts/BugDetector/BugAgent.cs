@@ -291,7 +291,7 @@ public class BugAgent : Agent
 
         if(other.collider.gameObject.CompareTag("Wall"))
         {
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, -1f, _rigidbody.velocity.z);
+            _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, -1f, _rigidbody.linearVelocity.z);
         }
 
     }
@@ -547,7 +547,7 @@ public class BugAgent : Agent
         // of the climbing
         if (_isAttached)
         {
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+            _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, 0, _rigidbody.linearVelocity.z);
 
             switch(_climbDirection)
             {
@@ -585,13 +585,13 @@ public class BugAgent : Agent
         }
         else
         {
-            if (_isAttached && _rigidbody.velocity.y < 0f)
+            if (_isAttached && _rigidbody.linearVelocity.y < 0f)
             {
-                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+                _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, 0, _rigidbody.linearVelocity.z);
             }
             if (jump > 0)
             {
-                _rigidbody.velocity = new Vector3(0, 0, 0);
+                _rigidbody.linearVelocity = new Vector3(0, 0, 0);
                 _rigidbody.AddForce(Vector3.up * Mathf.Sqrt(_agentJump * -2f * Physics.gravity.y), ForceMode.Impulse);
                 //_rigidbody.velocity = Vector3.up * _agentJump;
                 _jump = 0;
@@ -601,9 +601,9 @@ public class BugAgent : Agent
         }
         
         // Movement down
-        if (_rigidbody.velocity.y < 0)
+        if (_rigidbody.linearVelocity.y < 0)
         {
-            _rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+            _rigidbody.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
 
         if (direction.magnitude < 0.2f)

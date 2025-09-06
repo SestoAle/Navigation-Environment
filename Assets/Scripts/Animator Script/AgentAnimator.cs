@@ -21,7 +21,7 @@ public class AgentAnimator : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 velocity = _rigidbody.velocity;
+        Vector3 velocity = _rigidbody.linearVelocity;
         Vector3 isMoving = new Vector3(_agentComponent._horizontal, _agentComponent._jump , _agentComponent._vertical);
 
         _animator.SetFloat("agent_velocity", isMoving.magnitude);
